@@ -1,5 +1,7 @@
-from selenium import webdriver   
+from selenium import webdriver  
+from selenium.webdriver.common.keys import Keys 
 import unittest
+import time
 
 class NewVisitorTest(unittest.TestCase): #(1)
     def setUp(self):
@@ -23,7 +25,6 @@ class NewVisitorTest(unittest.TestCase): #(1)
             )
 
         inputbox.send_keys('Buy peacok feathers')
-
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 
@@ -33,6 +34,8 @@ class NewVisitorTest(unittest.TestCase): #(1)
             any(row.text == '1: Buy peacok feathers' for row in rows)
             )
         self.fail('Finish the test!')
+    
+    
 if __name__ == '__main__':#(6)
     #12345677
     unittest.main(warnings='ignore')#(7)
