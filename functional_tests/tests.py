@@ -1,12 +1,13 @@
 from selenium.common.exceptions import WebDriverException
-from django.test import LiveServerTestCase
+#from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import unittest
 import time
 MAX_WAIT = 10
-
-class NewVisitorTest(LiveServerTestCase):
+#class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
       def setUp(self):
           self.browser = webdriver.Firefox()
       def tearDown(self):
@@ -41,7 +42,7 @@ class NewVisitorTest(LiveServerTestCase):
               inputbox.location['x'] + inputbox.size['width']/2,
               512,
               delta=10
-          )
+          ) 
       # def test_can_start_a_list_for_one_user(self):
       #
       #     self.wait_for_row_in_list_table('1: Buy peacock feathers')
@@ -123,7 +124,7 @@ class NewVisitorTest(LiveServerTestCase):
 
           # self.browser.quit() 111
 
-
+       
 if __name__== '__main__':
    unittest.main(warnings='ignore')
 
